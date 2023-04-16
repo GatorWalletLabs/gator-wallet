@@ -12,6 +12,7 @@ function App({ Component, pageProps }: any) {
   const getLayout = Component.getLayout ?? ((page: ReactNode) => page);
   const AppMainBody = useRef(null);
 
+  
   return getLayout(
     <>
     
