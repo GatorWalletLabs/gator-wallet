@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { ChainId } from "@biconomy/core-types";
+import "@biconomy/web3-auth/dist/src/style.css"
 import SocialLogin from "@biconomy/web3-auth";
 import SmartAccount from "@biconomy/smart-account";
 
@@ -81,8 +82,8 @@ const Scw = () => {
       setScwAddress("");
       setScwLoading(true);
       const smartAccount = new SmartAccount(provider, {
-        activeNetworkId: ChainId.GOERLI,
-        supportedNetworksIds: [ChainId.GOERLI],
+        activeNetworkId: ChainId.POLYGON_MUMBAI,
+        supportedNetworksIds: [ChainId.POLYGON_MAINNET, ChainId.POLYGON_MUMBAI],
       });
       await smartAccount.init();
       const context = smartAccount.getSmartAccountContext();
@@ -99,8 +100,7 @@ const Scw = () => {
   return (
     <div className="">
       <main className="">
-        <h1 className="">Gator Wallet</h1>
-        <button onClick={!account ? connectWeb3 : disconnectWeb3}>
+        <button onClick={!account ? connectWeb3 : disconnectWeb3} className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
           {!account ? "Connect Wallet" : "Disconnect Wallet"}
         </button>
 
