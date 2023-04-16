@@ -1,6 +1,5 @@
 "use client"
 
-import styles from "./styles.module.css"
 import { useCallback, useEffect, useState } from "react";
 import { ethers } from "ethers";
 import { ChainId } from "@biconomy/core-types";
@@ -98,9 +97,9 @@ const Scw = () => {
   }, [account, provider]);
 
   return (
-    <div className={styles.container}>
-      <main className={styles.main}>
-        <h1 className={styles.title}>Gator Wallet</h1>
+    <div className="">
+      <main className="">
+        <h1 className="">Gator Wallet</h1>
         <button onClick={!account ? connectWeb3 : disconnectWeb3}>
           {!account ? "Connect Wallet" : "Disconnect Wallet"}
         </button>
