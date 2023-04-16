@@ -1,7 +1,13 @@
 import type { NextPage } from "next";
-
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
 const Home: NextPage = () => {
-
+  const SocialLoginDynamic = dynamic(
+    () => import("../components/scw").then((res) => res.default),
+    {
+      ssr: false,
+    }
+  );
   return (
     <>
         <main>
@@ -13,6 +19,11 @@ const Home: NextPage = () => {
                 </h1>
               </div>
             </div>
+            <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <SocialLoginDynamic />
+      </Suspense>
+    </div>
           </div>
         </main>
         
